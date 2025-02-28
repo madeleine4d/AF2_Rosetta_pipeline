@@ -1,4 +1,4 @@
-from os import listdir
+from os import listdir, system
 
 jobNames = []
 for file in listdir("./AF2_out/"):
@@ -6,7 +6,7 @@ for file in listdir("./AF2_out/"):
 print(jobNames)
 
 for job in jobNames:
-    exec(
+    system(
         "sbatch -J "
         + job.split(".")[0]
         + " ./score.batch"
