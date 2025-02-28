@@ -6,4 +6,12 @@ for file in listdir("./AF2_out/"):
 print(jobNames)
 
 for job in jobNames:
-    print("sbatch -J " + job.split(".")[0] + " ./score.batch" + " ./AF2_out/" + job)
+    print(
+        "sbatch -J "
+        + job.split(".")[0]
+        + " ./score.batch"
+        + " ./AF2_out/"
+        + job
+        + " "
+        + job
+    )
