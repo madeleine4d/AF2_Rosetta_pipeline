@@ -31,8 +31,8 @@ def LoadSeqs(path: str):
 
 
 def MakeStruct(seqs: pd.DataFrame, seed=[], template=defaultTemplate):
-    jobs = []
-    job = {}
+    jobs: list = []
+    job: dict = {}
     for i in list(seqs.index.values):
         exec(template, dict(i=i, seed=seed, seqs=seqs, job=job, jobs=jobs))
     return jobs
@@ -52,6 +52,3 @@ def SeqsToStruct(pathToSeqs: str):
 def SeqsToJason(pathToSeqs: str, pathToSave: str):
     struct = SeqsToStruct(pathToSeqs)
     SaveJson(struct, pathToSave)
-
-
-SeqsToJason("./Seqs.csv", "./jobs2.json")
